@@ -1,15 +1,23 @@
-// H2-TASK:
-function getDigits(a: string): string {
-  let digitArray = [];
-  for (let i = 0; i < a.length; i++) {
-    let letter = a[i];
-    if (!isNaN(parseInt(letter))) {
-      digitArray.push(letter);
+//task i
+function majorityElement(arr: number[]): number {
+  let objectFrequency: { [key: number]: number } = {};
+  for (let i = 0; i < arr.length; i++) {
+    let num = arr[i];
+    if (objectFrequency[num]) {
+      objectFrequency[num]++;
+    } else {
+      objectFrequency[num] = 1;
     }
   }
-
-  return digitArray.join("").toString();
+  let maxCount = 0;
+  let majorityElement: number | null = null;
+  for (let num in objectFrequency) {
+    if (objectFrequency[num] > maxCount) {
+      maxCount = objectFrequency[num];
+      majorityElement = parseInt(num);
+    }
+  }
+  return majorityElement!;
 }
 
-
-console.log(getDigits("m14i1trw23dhs7"));
+console.log(majorityElement([5,3]));
