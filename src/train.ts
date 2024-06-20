@@ -14,3 +14,18 @@ function findLongestWord(input: string): string {
 }
 
 console.log(findLongestWord("BATMAN Spiderman  wewewewew"));
+
+//K-Task
+
+function countVowels(string: string): number {
+  const vowel = ["a", "e", "i", "o", "u"];
+  let toLovwerCase = string.toLocaleLowerCase();
+  let count = 0;
+  for (let i = 0; i < toLovwerCase.length; i++) {
+    if (vowel.includes(toLovwerCase[i])) {
+      count++;
+    }
+  }
+  return count;
+}
+console.log(countVowels("string"));
