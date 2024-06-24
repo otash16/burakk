@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { T } from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
@@ -48,21 +48,19 @@ restaurantController.processSignup = async (
     const newMember: MemberInput = req.body;
     newMember.memberType = MemberType.RESTAURANT;
     const result = await memberService.processSignup(newMember);
-    // SESSIONS AUTHENTICATION
 
+    // SESSIONS AUTHENTICATION
     req.session.member = result;
     req.session.save(function () {
       res.send(result);
-      res.redirect("/admin");
     });
   } catch (err) {
     console.log("Erro, processSignup", err);
     const message =
       err instanceof Error ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script>alert("${message}"); window.location.replace('admin/login1')</script> `
+      `<script>alert("${message}"); window.location.replace('admin/signup')</script> `
     );
-    res.send(err);
   }
 };
 
@@ -75,8 +73,8 @@ restaurantController.processLogin = async (
     // console.log("body:", req.body);
     const input: LoginInput = req.body;
     const result = await memberService.processLogin(input);
-    // SESSIONS AUTHENTICATION
 
+    // SESSIONS AUTHENTICATION
     req.session.member = result;
     req.session.save(function () {
       res.send(result);
@@ -88,7 +86,6 @@ restaurantController.processLogin = async (
     res.send(
       `<script>alert("${message}"); window.location.replace('admin/login1')</script> `
     );
-    res.send(err);
   }
 };
 
@@ -99,7 +96,7 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
       res.redirect("/admin");
     });
   } catch (err) {
-    console.log("Error processLogin", err);
+    console.log("Erro, processLogin", err);
     res.redirect("/admin");
   }
 };
@@ -116,6 +113,22 @@ restaurantController.checkAuthSession = async (
   } catch (err) {
     console.log("Erro, checkAuthSession", err);
     res.send(err);
+  }
+};
+
+restaurantController.verifyRestaurant = (
+  req: AdminRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  if (req.session?.member?.memberType === MemberType.RESTAURANT) {
+    req.member = req.session.member;
+    next();
+  } else {
+    const message = Message.NOT_AUTHENTICATED;
+    res.send(
+      `<script>alert("${message}"); window.location.replace('/admin/login')</script>`
+    );
   }
 };
 

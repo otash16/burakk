@@ -1,4 +1,4 @@
-import ProductModel from "../schema/product.model";
+import ProductModel from "../schema/Product.service";
 
 class ProductService {
   private readonly productModel;

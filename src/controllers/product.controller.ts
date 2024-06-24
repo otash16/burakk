@@ -1,4 +1,4 @@
-import ProductService from "../models/product.service";
+import ProductService from "../models/Product.model";
 import Errors from "../libs/Errors";
 import { T } from "../libs/types/common";
 import { Request, Response } from "express";
