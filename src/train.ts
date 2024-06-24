@@ -1,31 +1,46 @@
-// J TASk
+// // J TASk
 
-function findLongestWord(input: string): string {
-  let words: string[] = input.split(" ");
+// function findLongestWord(input: string): string {
+//   let words: string[] = input.split(" ");
 
-  let longestWord: string = "";
-  for (const word of words) {
-    if (word.length > longestWord.length) {
-      longestWord = word;
-    }
+//   let longestWord: string = "";
+//   for (const word of words) {
+//     if (word.length > longestWord.length) {
+//       longestWord = word;
+//     }
+//   }
+
+//   return longestWord;
+// }
+
+// console.log(findLongestWord("BATMAN Spiderman  wewewewew"));
+
+// //K-Task
+
+// function countVowels(string: string): number {
+//   const vowel = ["a", "e", "i", "o", "u"];
+//   let toLovwerCase = string.toLocaleLowerCase();
+//   let count = 0;
+//   for (let i = 0; i < toLovwerCase.length; i++) {
+//     if (vowel.includes(toLovwerCase[i])) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+// console.log(countVowels("string"));
+
+function reverseSentence(string: string): string {
+  let toArray = string.split(" ");
+  let reversedArray = [];
+
+  for (let i = 0; i < toArray.length; i++) {
+    let output = toArray[i];
+    let reversedString = output.split("").reverse().join("");
+    reversedArray.push(reversedString);
   }
 
-  return longestWord;
+  return reversedArray.join(" ").toString();
 }
 
-console.log(findLongestWord("BATMAN Spiderman  wewewewew"));
-
-//K-Task
-
-function countVowels(string: string): number {
-  const vowel = ["a", "e", "i", "o", "u"];
-  let toLovwerCase = string.toLocaleLowerCase();
-  let count = 0;
-  for (let i = 0; i < toLovwerCase.length; i++) {
-    if (vowel.includes(toLovwerCase[i])) {
-      count++;
-    }
-  }
-  return count;
-}
-console.log(countVowels("string"));
+console.log(reverseSentence("we like coding"));
