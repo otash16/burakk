@@ -30,17 +30,38 @@
 // }
 // console.log(countVowels("string"));
 
-function reverseSentence(string: string): string {
-  let toArray = string.split(" ");
-  let reversedArray = [];
+// function reverseSentence(string: string): string {
+//   let toArray = string.split(" ");
+//   let reversedArray = [];
 
-  for (let i = 0; i < toArray.length; i++) {
-    let output = toArray[i];
-    let reversedString = output.split("").reverse().join("");
-    reversedArray.push(reversedString);
+//   for (let i = 0; i < toArray.length; i++) {
+//     let output = toArray[i];
+//     let reversedString = output.split("").reverse().join("");
+//     reversedArray.push(reversedString);
+//   }
+
+//   return reversedArray.join(" ").toString();
+// }
+
+// console.log(reverseSentence("we like coding"));
+
+interface NumbersObject {
+  number: number;
+  square: number;
+}
+function getSquareNumbers(array: number[]): NumbersObject[] {
+  let squareNumbers = array.map((ele) => ele * ele);
+  let squareNumbersArray: NumbersObject[] = [];
+
+  for (let i = 0; i < array.length; i++) {
+    let numbersObject: NumbersObject = {
+      number: array[i],
+      square: squareNumbers[i],
+    };
+    squareNumbersArray.push(numbersObject);
   }
 
-  return reversedArray.join(" ").toString();
+  return squareNumbersArray;
 }
 
-console.log(reverseSentence("we like coding"));
+console.log(getSquareNumbers([1, 2, 3]));
