@@ -54,7 +54,7 @@ const productSchema = new Schema(
     },
 
     productImages: {
-      type: [Array],
+      type: [String],
       default: [],
     },
 
@@ -67,7 +67,7 @@ const productSchema = new Schema(
 );
 
 productSchema.index(
-  { productName: 1, productSize: 1, ProductVolume: 1 },
+  { productName: 1, productSize: 1, productVolume: 1 },
   { unique: true }
 );
 export default mongoose.model("Product", productSchema);
