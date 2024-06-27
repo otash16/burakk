@@ -45,23 +45,31 @@
 
 // console.log(reverseSentence("we like coding"));
 
-interface NumbersObject {
-  number: number;
-  square: number;
+// interface NumbersObject {
+//   number: number;
+//   square: number;
+// }
+// function getSquareNumbers(array: number[]): NumbersObject[] {
+//   let squareNumbers = array.map((ele) => ele * ele);
+//   let squareNumbersArray: NumbersObject[] = [];
+
+//   for (let i = 0; i < array.length; i++) {
+//     let numbersObject: NumbersObject = {
+//       number: array[i],
+//       square: squareNumbers[i],
+//     };
+//     squareNumbersArray.push(numbersObject);
+//   }
+
+//   return squareNumbersArray;
+// }
+
+// console.log(getSquareNumbers([1, 2, 3]));
+
+function change(string: string) {
+  const result = string.split("").reverse().join("")
+  const palindromeCheck = string == result;
+  return palindromeCheck;
+
 }
-function getSquareNumbers(array: number[]): NumbersObject[] {
-  let squareNumbers = array.map((ele) => ele * ele);
-  let squareNumbersArray: NumbersObject[] = [];
-
-  for (let i = 0; i < array.length; i++) {
-    let numbersObject: NumbersObject = {
-      number: array[i],
-      square: squareNumbers[i],
-    };
-    squareNumbersArray.push(numbersObject);
-  }
-
-  return squareNumbersArray;
-}
-
-console.log(getSquareNumbers([1, 2, 3]));
+console.log(change("111"));  // true buyerda
