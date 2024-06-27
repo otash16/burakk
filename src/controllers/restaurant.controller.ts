@@ -78,7 +78,7 @@ restaurantController.processLogin = async (
   try {
     console.log("processLogin");
     console.log("req.body: ",req.body);
-    throw new Error("FORCED STOP!");
+    // throw new Error("FORCED STOP!");
     // console.log("body:", req.body);
     const input: LoginInput = req.body;
     const result = await memberService.processLogin(input);
