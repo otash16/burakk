@@ -44,7 +44,8 @@ restaurantController.processSignup = async (
 ) => {
   try {
     console.log("processSignup");
-    console.log("req.body", req.body);
+    console.log("req.body:", req.body);
+
     const file = req.file;
     if (!file)
       throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
@@ -77,9 +78,7 @@ restaurantController.processLogin = async (
 ) => {
   try {
     console.log("processLogin");
-    console.log("req.body: ",req.body);
-    // throw new Error("FORCED STOP!");
-    // console.log("body:", req.body);
+    console.log("body:", req.body);
     const input: LoginInput = req.body;
     const result = await memberService.processLogin(input);
 
@@ -93,7 +92,7 @@ restaurantController.processLogin = async (
     const message =
       err instanceof Error ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script>alert("${message}"); window.location.replace('/admin/login1')</script> `
+      `<script>alert("${message}"); window.location.replace('/admin/login')</script> `
     );
   }
 };
@@ -107,6 +106,34 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
   } catch (err) {
     console.log("Erro, processLogin", err);
     res.redirect("/admin");
+  }
+};
+
+restaurantController.getUsers = async (req: Request, res: Response) => {
+  try {
+    console.log("getUsers");
+    const result = await memberService.getUsers();
+    console.log("result:", result);
+
+    res.render("users", { users: result });
+  } catch (err) {
+    console.log("Erro, getUsers", err);
+    res.redirect("/admin/login");
+  }
+};
+
+restaurantController.updateChosenUser = async (req: Request, res: Response) => {
+  try {
+    console.log("updateChosenUser");
+    const result = await memberService.updateChosenUser(req.body);
+
+    res.status(HttpCode.OK).json({ data: result });
+  } catch (err) {
+    console.log("Erro, updateChosenUser", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
+    else {
+      res.status(Errors.standard.code).json(Errors.standard);
+    }
   }
 };
 
