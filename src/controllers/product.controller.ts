@@ -34,14 +34,15 @@ productController.createNewProduct = async (
 ) => {
   try {
     console.log("createNewProduct");
-    console.log("req.files:", req.files);
+    // console.log("req.files:", req.files);
+    // console.log("req.body:", req.body);
 
     if (!req.files?.length)
       throw new Errors(HttpCode.INTERNAL_SERVER_ERROR, Message.CREATED_FAILED);
 
     // TODO: QUESTION ABOUT REQUEST.BODY
 
-    console.log("req.body:", req.body);
+    // console.log("req.body:", req.body);
     const data: ProductInput = req.body;
     data.productImages = req.files?.map((ele) => {
       return ele.path.replace(/\\/g, "/");
