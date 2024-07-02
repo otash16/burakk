@@ -1,19 +1,38 @@
+// P-TASK:
+
+// Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
+// MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+
+interface T {
+  [key: string]: any;
+}
+
+function objectToArray(obj: T): any[] {
+  const result1 = Object.keys(obj).map((key) => [key, obj[key]]);
+  return result1;
+}
+
+console.log(objectToArray({ a: 10, b: 20 }));
+
 // O-TASK:
 
 // Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
 // MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
 
-function calculateSumOfNumbers(array: any[]): number {
-  let arrayNumber: number[] = [];
-  for (let i = 0; i < array.length; i++) {
-    if (typeof array[i] === "number") {
-      arrayNumber.push(array[i]);
-    }
-  }
-  const sum = arrayNumber.reduce((acc, cur) => acc + cur, 0);
-  return sum;
-}
-console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
+// function calculateSumOfNumbers(array: any[]): number {
+//   let arrayNumber: number[] = [];
+//   for (let i = 0; i < array.length; i++) {
+//     if (typeof array[i] === "number") {
+//       arrayNumber.push(array[i]);
+//     }
+//   }
+
+//   const sum = arrayNumber.reduce((acc, cur) => acc + cur, 0);
+//   return sum;
+// }
+
+// console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
+// console.log(calculateSumOfNumbers(["10", { son: 10 }, true]));
 
 // N-TASK:
 
