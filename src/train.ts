@@ -3,16 +3,16 @@
 // Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
 // MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
 
-interface T {
-  [key: string]: any;
-}
+// interface T {
+//   [key: string]: any;
+// }
 
-function objectToArray(obj: T): any[] {
-  const result1 = Object.keys(obj).map((key) => [key, obj[key]]);
-  return result1;
-}
+// function objectToArray(obj: T): any[] {
+//   const result1 = Object.keys(obj).map((key) => [key, obj[key]]);
+//   return result1;
+// }
 
-console.log(objectToArray({ a: 10, b: 20 }));
+// console.log(objectToArray({ a: 10, b: 20 }));
 
 // O-TASK:
 
@@ -262,3 +262,14 @@ GraphQL API
 // console.log(getHighestIndex([5, 9, 12, 0, 1]));
 // console.log(getHighestIndex([5, 9, 12, 0, 1, 48, 50, 23, 1000]));
 // console.log(getHighestIndex("hi"));
+interface T {
+  [key: string]: any;
+}
+function hasProperty(objInput: T, strInput: string): boolean {
+  const objKeys = Object.keys(objInput);
+  //   console.log(objKeys);
+  const result = objKeys.includes(strInput) ? true : false;
+  return result;
+}
+
+console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
