@@ -262,14 +262,24 @@ GraphQL API
 // console.log(getHighestIndex([5, 9, 12, 0, 1]));
 // console.log(getHighestIndex([5, 9, 12, 0, 1, 48, 50, 23, 1000]));
 // console.log(getHighestIndex("hi"));
-interface T {
-  [key: string]: any;
-}
-function hasProperty(objInput: T, strInput: string): boolean {
-  const objKeys = Object.keys(objInput);
-  //   console.log(objKeys);
-  const result = objKeys.includes(strInput) ? true : false;
+// interface T {
+//   [key: string]: any;
+// }
+// function hasProperty(objInput: T, strInput: string): boolean {
+//   const objKeys = Object.keys(objInput);
+//   //   console.log(objKeys);
+//   const result = objKeys.includes(strInput) ? true : false;
+//   return result;
+// }
+
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
+
+
+
+function calculate(input: string): number {
+  const newArray = Array.from(input, (char) => Number(char));
+  const arrNumber = newArray.filter((num) => !isNaN(num));
+  const result = arrNumber.reduce((acc, curr) => acc + curr, 0);
   return result;
 }
-
-console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
+console.log(calculate("1+1"));

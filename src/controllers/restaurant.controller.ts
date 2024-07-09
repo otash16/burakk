@@ -156,7 +156,7 @@ restaurantController.verifyRestaurant = (
   req: AdminRequest,
   res: Response,
   next: NextFunction
-) => {
+) => {d
   if (req.session?.member?.memberType === MemberType.RESTAURANT) {
     req.member = req.session.member;
     next();
