@@ -276,10 +276,19 @@ GraphQL API
 
 
 
-function calculate(input: string): number {
-  const newArray = Array.from(input, (char) => Number(char));
-  const arrNumber = newArray.filter((num) => !isNaN(num));
-  const result = arrNumber.reduce((acc, curr) => acc + curr, 0);
-  return result;
+// function calculate(input: string): number {
+//   const newArray = Array.from(input, (char) => Number(char));
+//   const arrNumber = newArray.filter((num) => !isNaN(num));
+//   const result = arrNumber.reduce((acc, curr) => acc + curr, 0);
+//   return result;
+// }
+// console.log(calculate("1+1"));
+
+
+function missingNumber(arr: number[]): number {
+  const n = arr.length;
+  const total = (n * (n + 1)) / 2;
+  const actual = arr.reduce((sum, num) => sum + num, 0);
+  return total - actual;
 }
-console.log(calculate("1+1"));
+console.log(missingNumber([3, 0, 1]));
