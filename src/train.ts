@@ -291,4 +291,4 @@ function missingNumber(arr: number[]): number {
   const actual = arr.reduce((sum, num) => sum + num, 0);
   return total - actual;
 }
-console.log(missingNumber([3, 0, 1]));
+console.log(missingNumber([3, 0, 1])); 
