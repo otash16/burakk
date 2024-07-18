@@ -285,10 +285,25 @@ GraphQL API
 // console.log(calculate("1+1"));
 
 
-function missingNumber(arr: number[]): number {
-  const n = arr.length;
-  const total = (n * (n + 1)) / 2;
-  const actual = arr.reduce((sum, num) => sum + num, 0);
-  return total - actual;
+// function missingNumber(arr: number[]): number {
+//   const n = arr.length;
+//   const total = (n * (n + 1)) / 2;
+//   const actual = arr.reduce((sum, num) => sum + num, 0);
+//   return total - actual;
+// }
+// console.log(missingNumber([3, 0, 1])); 
+
+function sumOdds(input: number): number {
+  let sumOdd = 0;
+  for (let i = 0; i < input; i++) {
+    if (i % 2 !== 0) {
+      sumOdd++;
+    }
+  }
+
+  return sumOdd;
 }
-console.log(missingNumber([3, 0, 1])); 
+
+console.log(sumOdds(9));
+console.log(sumOdds(11));
+console.log(sumOdds(19));
