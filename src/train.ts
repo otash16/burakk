@@ -293,17 +293,26 @@ GraphQL API
 // }
 // console.log(missingNumber([3, 0, 1])); 
 
-function sumOdds(input: number): number {
-  let sumOdd = 0;
-  for (let i = 0; i < input; i++) {
-    if (i % 2 !== 0) {
-      sumOdd++;
-    }
+// function sumOdds(input: number): number {
+//   let sumOdd = 0;
+//   for (let i = 0; i < input; i++) {
+//     if (i % 2 !== 0) {
+//       sumOdd++;
+//     }
+//   }
+
+//   return sumOdd;
+// }
+
+// console.log(sumOdds(9));
+// console.log(sumOdds(11));
+// console.log(sumOdds(19));
+
+function chunkArray(input1: number[], input2: number): number[][] {
+  const chunkedArray: number[][] = [];
+  for (let i = 0; i < input1.length; i += input2) {
+    const chunk: number[] = input1.slice(i, i + input2);
+    chunkedArray.push(chunk);
   }
-
-  return sumOdd;
-}
-
-console.log(sumOdds(9));
-console.log(sumOdds(11));
-console.log(sumOdds(19));
+  return chunkedArray;
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
