@@ -1,10 +1,11 @@
-import { ObjectId } from "mongoose";
+import { Types } from "mongoose";
 import { MemberStatus, MemberType } from "../enums/member.enum";
 import { Request } from "express";
 import { Session } from "express-session";
 
 export interface Member {
-  _id: ObjectId;
+  toJSON(): Member | PromiseLike<Member>;
+  _id: Types.ObjectId;
   memberType: MemberType;
   memberStatus: MemberStatus;
   memberNick: string;
@@ -36,7 +37,7 @@ export interface LoginInput {
 }
 
 export interface MemberUpdateInput {
-  _id: ObjectId;
+  _id: Types.ObjectId;
   memberStatus?: MemberStatus;
   memberNick?: string;
   memberPhone?: string;
@@ -44,6 +45,12 @@ export interface MemberUpdateInput {
   memberAddress?: string;
   memberDesc?: string;
   memberImage?: string;
+}
+
+export interface ExtendedRequest extends Request {
+  member: Member;
+  file: Express.Multer.File;
+  files: Express.Multer.File[];
 }
 
 export interface AdminRequest extends Request {

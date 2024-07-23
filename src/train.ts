@@ -308,11 +308,35 @@ GraphQL API
 // console.log(sumOdds(11));
 // console.log(sumOdds(19));
 
-function chunkArray(input1: number[], input2: number): number[][] {
-  const chunkedArray: number[][] = [];
-  for (let i = 0; i < input1.length; i += input2) {
-    const chunk: number[] = input1.slice(i, i + input2);
-    chunkedArray.push(chunk);
+// function chunkArray(input1: number[], input2: number): number[][] {
+//   const chunkedArray: number[][] = [];
+//   for (let i = 0; i < input1.length; i += input2) {
+//     const chunk: number[] = input1.slice(i, i + input2);
+//     chunkedArray.push(chunk);
+//   }
+//   return chunkedArray;
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3))}
+interface T {
+  [key: string]: any;
+}
+function countOccurrences(obj: T, key: string): number {
+  let count = 0;
+  function recurse(obj: T): void {
+    if (typeof obj === "object" && obj !== null) {
+      for (const k in obj) {
+        if (k === key) {
+          count++;
+        }
+        recurse(obj[k]);
+      }
+    }
   }
-  return chunkedArray;
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+  recurse(obj);
+  return count;
+}
+console.log(
+  countOccurrences(
+    { model: "Bugatti", steer: { model: "HANKOOK", size: 30 } },
+    "model"
+  )
+);
