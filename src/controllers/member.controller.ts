@@ -100,7 +100,7 @@ memberController.getMemberDetail = async (
 
     res.status(HttpCode.OK).json(result);
   } catch (err) {
-    console.log("Erro, getMemberDetail", err);
+    console.log("Error getMemberDetail", err);
     if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standard.code).json(Errors.standard);
   }

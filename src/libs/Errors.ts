@@ -20,10 +20,13 @@ export enum Message {
   BLOCKED_USER = "You have been blocked, contact restaurant!",
   WRONG_PASSWORD = "Wrong password, please try again!",
   NOT_AUTHENTICATED = "You are not Authoticates, login first!",
-  TOKEN_CREATION_FAILED = "Token creation error!",
+  TOKEN_CREATION_FAILED = "Token creation error",
 }
 
 class Errors extends Error {
+  static OK(OK: any) {
+    throw new Error("Method not implemented.");
+  }
   public code: HttpCode;
   public message: Message;
 
