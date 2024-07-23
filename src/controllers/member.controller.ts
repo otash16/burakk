@@ -95,12 +95,16 @@ memberController.getMemberDetail = async (
 ) => {
   try {
     console.log("getMemberDetail");
-    // console.log("res", res);
+
+    // Service call (Request)
     const result = await memberService.getMemberDetail(req.member);
 
+    // Service call (Response)
     res.status(HttpCode.OK).json(result);
+
+    // This error happens when service call fails.
   } catch (err) {
-    console.log("Error getMemberDetail", err);
+    console.log("Error, getMemberDetail:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standard.code).json(Errors.standard);
   }
@@ -149,7 +153,7 @@ memberController.verifyAuth = async (
 
     next();
   } catch (err) {
-    console.log("Erro, verifyAuth", err);
+    console.log("Error verifyAuth", err);
     if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standard.code).json(Errors.standard);
   }
@@ -166,7 +170,7 @@ memberController.retrievAuth = async (
 
     next();
   } catch (err) {
-    console.log("Erro, retrievAuth", err);
+    console.log("Error retrievAuth", err);
     next();
   }
 };

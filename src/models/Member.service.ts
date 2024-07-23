@@ -8,8 +8,8 @@ import {
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { MemberStatus, MemberType } from "../libs/enums/member.enum";
 import * as bcrypt from "bcryptjs";
-import { shapeIntoMongooseObject } from "../libs/config";
 import { Error } from "mongoose";
+import { shopeIntoMongooseObjectId } from "../libs/config";
 
 class MemberService {
   private readonly memberModel;
@@ -83,21 +83,21 @@ class MemberService {
   }
 
   public async getMemberDetail(member: Member): Promise<Member> {
-    const memberId = shapeIntoMongooseObject(member._id);
+    const memberId = shopeIntoMongooseObjectId(member._id);
+
     const result = await this.memberModel
       .findOne({ _id: memberId, memberStatus: MemberStatus.ACTIVE })
       .exec();
 
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
 
-    return result as unknown as Member;
+    return result;
   }
-
   public async updateMember(
     member: Member,
     input: MemberUpdateInput
   ): Promise<Member> {
-    const memberId = shapeIntoMongooseObject(member._id);
+    const memberId = shopeIntoMongooseObjectId(member._id);
     const result = await this.memberModel.findByIdAndUpdate(
       { _id: memberId },
       input,
@@ -191,7 +191,7 @@ class MemberService {
   public async updateChosenUser(
     input: MemberUpdateInput
   ): Promise<Member | any> {
-    input._id = shapeIntoMongooseObject(input._id);
+    input._id = shopeIntoMongooseObjectId(input._id);
     const result = await this.memberModel
       .findByIdAndUpdate({ _id: input._id }, input, { new: true })
       .exec();

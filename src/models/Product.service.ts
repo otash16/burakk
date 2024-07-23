@@ -1,4 +1,4 @@
-import { shapeIntoMongooseObject } from "../libs/config";
+import { shopeIntoMongooseObjectId } from "../libs/config";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import {
   Product,
@@ -39,7 +39,7 @@ class ProductService {
     id: string,
     input: ProductUpdateInput
   ): Promise<Product> {
-    id = shapeIntoMongooseObject(id);
+    id = shopeIntoMongooseObjectId(id);
     const result = await this.productModel
       .findOneAndUpdate({ _id: id }, input, { new: true })
       .exec();
