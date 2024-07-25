@@ -316,27 +316,44 @@ GraphQL API
 //   }
 //   return chunkedArray;
 // console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3))}
+// interface T {
+//   [key: string]: any;
+// }
+// function countOccurrences(obj: T, key: string): number {
+//   let count = 0;
+//   function recurse(obj: T): void {
+//     if (typeof obj === "object" && obj !== null) {
+//       for (const k in obj) {
+//         if (k === key) {
+//           count++;
+//         }
+//         recurse(obj[k]);
+//       }
+//     }
+//   }
+//   recurse(obj);
+//   return count;
+// }
+// console.log(
+//   countOccurrences(
+//     { model: "Bugatti", steer: { model: "HANKOOK", size: 30 } },
+//     "model"
+//   )
+// );
+
+function findIntersection(arr1: number[], arr2: number[]): number[] {
+  const newArray = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr2.includes(arr1[i])) {
+      newArray.push(arr1[i]);
+    }
+  }
+  return newArray;
+}
+
+console.log(findIntersection([1, 2, 3], [3, 2, 0]));
+console.log(findIntersection([1, 2, 3], [3, 4, 1]));
 interface T {
   [key: string]: any;
 }
-function countOccurrences(obj: T, key: string): number {
-  let count = 0;
-  function recurse(obj: T): void {
-    if (typeof obj === "object" && obj !== null) {
-      for (const k in obj) {
-        if (k === key) {
-          count++;
-        }
-        recurse(obj[k]);
-      }
-    }
-  }
-  recurse(obj);
-  return count;
-}
-console.log(
-  countOccurrences(
-    { model: "Bugatti", steer: { model: "HANKOOK", size: 30 } },
-    "model"
-  )
-);
