@@ -25,9 +25,9 @@ class ProductService {
 
   // SPA
   public async getProducts(inquery: ProductInquery): Promise<Product[]> {
-    console.log("inquiry:", inquery);
+    // console.log("inquiry:", inquery);
     const match: T = { productStatus: ProductStatus.PROCESS };
-    console.log("match:", match);
+    // console.log("match:", match);
 
     if (inquery.productCollection) {
       match.productCollection = inquery.productCollection;
