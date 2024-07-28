@@ -1,6 +1,6 @@
 import { T } from "../libs/types/common";
 import { ProductStatus } from "../libs/enums/product.enum";
-import { shopeIntoMongooseObjectId } from "../libs/config";
+import { shapeIntoMongooseObject } from "../libs/config";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import {
   Product,
@@ -60,7 +60,7 @@ class ProductService {
     memberId: ObjectId | null,
     id: string
   ): Promise<Product> {
-    const productId = shopeIntoMongooseObjectId(id);
+    const productId = shapeIntoMongooseObject(id);
 
     let result = await this.productModel
       .findOne({
@@ -124,7 +124,7 @@ class ProductService {
     id: string,
     input: ProductUpdateInput
   ): Promise<Product> {
-    id = shopeIntoMongooseObjectId(id);
+    id = shapeIntoMongooseObject(id);
     const result = await this.productModel
       .findOneAndUpdate({ _id: id }, input, { new: true })
       .exec();
