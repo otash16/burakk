@@ -358,11 +358,16 @@ GraphQL API
 //   [key: string]: any;
 // }
 
-function sumEvens(arr: number[]): number {
-  const evenNumbers = arr.filter((ele) => {
-    return ele % 2 === 0;
-  });
-  return evenNumbers.reduce((a, b) => a + b);
+// function sumEvens(arr: number[]): number {
+//   const evenNumbers = arr.filter((ele) => {
+//     return ele % 2 === 0;
+//   });
+//   return evenNumbers.reduce((a, b) => a + b);
+// }
+// console.log(sumEvens([1, 2, 3]));
+// console.log(sumEvens([1, 2, 4, 6, 8]));
+
+function randomBetween(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-console.log(sumEvens([1, 2, 3]));
-console.log(sumEvens([1, 2, 4, 6, 8]));
+console.log(randomBetween(30, 50));
