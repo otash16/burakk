@@ -367,7 +367,12 @@ GraphQL API
 // console.log(sumEvens([1, 2, 3]));
 // console.log(sumEvens([1, 2, 4, 6, 8]));
 
-function randomBetween(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+// function randomBetween(min: number, max: number): number {
+//   return Math.floor(Math.random() * (max - min + 1)) + min;
+// }
+// console.log(randomBetween(30, 50));
+
+function celsiusToFahrenheit(input: number): number {
+  return input * (9 / 5) + 32;
 }
-console.log(randomBetween(30, 50));
+console.log(celsiusToFahrenheit(0));
