@@ -1,3 +1,233 @@
+// ZD-TASK:
+
+// Shunday function yozing, uni number, array va number parametrlari bolsin va berilgan 1-parametr numberga teng indexni array ichidan topib 3-parametrdagi raqam bilan almashtirib yangilangan arrayni qaytarsin
+// MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2]
+
+function changeNumberInArray(
+  index: number,
+  array: number[],
+  newValue: number
+): number[] {
+  let newArray: number[] = new Array(array.length);
+  for (let i = 0; i < array.length; i++) {
+    if (i === index) {
+      newArray[i] = newValue;
+    } else {
+      newArray[i] = array[i];
+    }
+  }
+  return newArray;
+}
+console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
+
+// ZC-TASK:
+
+// Shunday function yozing, uni number parametri bolsin va function parametrni selsiy miqdori sifatida qabul qilib uni farenhitga ozgartirib bersin
+// MASALAN: celsiusToFahrenheit(0) return 32
+
+// function celsiusToFahrenheit(input: number): number {
+//   return input * (9 / 5) + 32;
+// }
+
+// console.log(celsiusToFahrenheit(0));
+// console.log(celsiusToFahrenheit(2));
+// console.log(celsiusToFahrenheit(89));
+
+// ZB-TASK:
+
+// Shunday function yozing, uni 2 ta number parametri bolsin va berilgan sonlar orasidan random raqam return qilsin
+// MASALAN: randomBetween(30, 50) return 45
+
+// function randomBetween(min: number, max: number): number {
+//   return Math.floor(Math.random() * (max - min + 1)) + min;
+// }
+
+// console.log(randomBetween(30, 50));
+
+// Z-TASK:
+
+// Shunday function yozing, uni sonlardan tashkil topgan array qabul qilsin. Function arraydagi juft sonlarni yigindisini qaytarsin
+// MASALAN: sumEvens([1,2,3]) return 2
+
+// function sumEvens(arr: number[]): number {
+//   const evenNumbers = arr.filter((ele) => {
+//     return ele % 2 === 0;
+//   });
+
+//   return evenNumbers.reduce((a, b) => a + b);
+// }
+
+// console.log(sumEvens([1, 2, 3]));
+// console.log(sumEvens([1, 2, 4, 6, 8]));
+
+// Y-TASK:
+
+//  Shunday function yozing, uni 2 ta array parapetri bolsin. Function ikkala arrayda ham ishtirok etgan qiymatlarni bir arrayda qaytarsin
+//  MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
+
+// function findIntersection(arr1: number[], arr2: number[]): number[] {
+//   const newArray = [];
+
+//   for (let i = 0; i < arr1.length; i++) {
+//     if (arr2.includes(arr1[i])) {
+//       newArray.push(arr1[i]);
+//     }
+//   }
+//   return newArray;
+// }
+
+// console.log(findIntersection([1, 2, 3], [3, 2, 0]));
+// console.log(findIntersection([1, 2, 3], [3, 4, 1]));
+
+// X-TASK:
+
+//  Shunday function yozing, uni object va string parapetrlari bolsin. Function string parametri object ichida necha marotaba takrorlanganligini qaytarsin (nested object bolsa ham sanasin)
+//  MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
+interface T {
+  [key: string]: any;
+}
+
+// function countOccurrences(obj: T, key: string): number {
+//   let count = 0;
+
+//   function recurse(obj: T): void {
+//     if (typeof obj === "object" && obj !== null) {
+//       for (const k in obj) {
+//         if (k === key) {
+//           count++;
+//         }
+//         recurse(obj[k]);
+//       }
+//     }
+//   }
+
+//   recurse(obj);
+//   return count;
+// }
+
+// console.log(
+//   countOccurrences(
+//     { model: "Bugatti", steer: { model: "HANKOOK", size: 30 } },
+//     "model"
+//   )
+// );
+
+// console.log(
+//   countOccurrences(
+//     { model: "Bugatti", steer: { model: "HANKOOK", size: 30 } },
+//     "mode"
+//   )
+// );
+
+// W-TASK:
+
+// Shunday function yozing, uni array va number parametrlari bolsin. Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan array holatida qaytarsin
+// MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
+
+// function chunkArray(input1: number[], input2: number): number[][] {
+//   const chunkedArray: number[][] = [];
+//   for (let i = 0; i < input1.length; i += input2) {
+//     const chunk: number[] = input1.slice(i, i + input2);
+//     chunkedArray.push(chunk);
+//   }
+//   return chunkedArray;
+// }
+
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 4));
+
+// U-TASK:
+
+// Shunday function yozing, uni number parametri bolsin va 0 dan berilgan parametrgacha bolgan oraliqdagi faqat toq sonlar nechtaligini return qilsin
+// MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+
+// function sumOdds(input: number): number {
+//   let sumOdd = 0;
+//   for (let i = 0; i < input; i++) {
+//     if (i % 2 !== 0) {
+//       sumOdd++;
+//     }
+//   }
+
+//   return sumOdd;
+// }
+
+// console.log(sumOdds(9));
+// console.log(sumOdds(11));
+// console.log(sumOdds(19));
+
+// T-TASK:
+
+// Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin
+// MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
+
+// function mergeSortedArrays(input1: number[], input2: number[]): number[] {
+//   const newArray = input1.concat(input2);
+//   const result = newArray.sort((a, b) => a - b);
+//   return result;
+// }
+
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+// console.log(mergeSortedArrays([0, 10, 4, 21], [9, 6, 60]));
+
+// S-TASK:
+
+// Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
+// MASALAN: missingNumber([3, 0, 1]) return 2
+
+// function missingNumber(arr: number[]): number {
+//   const n = arr.length;
+//   const total = (n * (n + 1)) / 2;
+//   const actual = arr.reduce((sum, num) => sum + num, 0);
+//   return total - actual;
+// }
+
+// console.log(missingNumber([3, 0, 1]));
+// console.log(missingNumber([3, 2, 4, 1]));
+// console.log(missingNumber([1, 2, 4, 0]));
+
+// R-TASK:
+
+// Shunday function yozing, u string parametrga ega bolsin. String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin.
+// MASALAN: calculate("1+3") return 4;
+
+// function calculate(input: string): number {
+//   const newArray = Array.from(input, (char) => Number(char));
+
+//   const arrNumber = newArray.filter((num) => !isNaN(num));
+
+//   // console.log(newArray);
+//   // console.log(arrNumber);
+//   const result = arrNumber.reduce((acc, curr) => acc + curr, 0);
+
+//   return result;
+// }
+
+// console.log(calculate("1+3"));
+// console.log(calculate("1+3+7+7"));
+// console.log(calculate("1+3+7+0"));
+
+// Q-TASK:
+
+// Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
+// MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
+
+// interface T {
+//   [key: string]: any;
+// }
+
+// function hasProperty(objInput: T, strInput: string): boolean {
+//   const objKeys = Object.keys(objInput);
+//   //   console.log(objKeys);
+//   const result = objKeys.includes(strInput) ? true : false;
+//   return result;
+// }
+
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));
+// console.log(hasProperty({ a: "BMW", 3: "M3" }, "3"));
+// console.log(hasProperty({ c: "BMW", d: "M3" }, "MIT"));
+
 // P-TASK:
 
 // Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
@@ -8,11 +238,12 @@
 // }
 
 // function objectToArray(obj: T): any[] {
-//   const result1 = Object.keys(obj).map((key) => [key, obj[key]]);
-//   return result1;
+//   const result = Object.keys(obj).map((key) => [key, obj[key]]);
+//   return result;
 // }
 
 // console.log(objectToArray({ a: 10, b: 20 }));
+// console.log(objectToArray({ a: "MIT", b: 12 }));
 
 // O-TASK:
 
@@ -262,117 +493,3 @@ GraphQL API
 // console.log(getHighestIndex([5, 9, 12, 0, 1]));
 // console.log(getHighestIndex([5, 9, 12, 0, 1, 48, 50, 23, 1000]));
 // console.log(getHighestIndex("hi"));
-// interface T {
-//   [key: string]: any;
-// }
-// function hasProperty(objInput: T, strInput: string): boolean {
-//   const objKeys = Object.keys(objInput);
-//   //   console.log(objKeys);
-//   const result = objKeys.includes(strInput) ? true : false;
-//   return result;
-// }
-
-// console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
-
-
-
-// function calculate(input: string): number {
-//   const newArray = Array.from(input, (char) => Number(char));
-//   const arrNumber = newArray.filter((num) => !isNaN(num));
-//   const result = arrNumber.reduce((acc, curr) => acc + curr, 0);
-//   return result;
-// }
-// console.log(calculate("1+1"));
-
-
-// function missingNumber(arr: number[]): number {
-//   const n = arr.length;
-//   const total = (n * (n + 1)) / 2;
-//   const actual = arr.reduce((sum, num) => sum + num, 0);
-//   return total - actual;
-// }
-// console.log(missingNumber([3, 0, 1])); 
-
-// function sumOdds(input: number): number {
-//   let sumOdd = 0;
-//   for (let i = 0; i < input; i++) {
-//     if (i % 2 !== 0) {
-//       sumOdd++;
-//     }
-//   }
-
-//   return sumOdd;
-// }
-
-// console.log(sumOdds(9));
-// console.log(sumOdds(11));
-// console.log(sumOdds(19));
-
-// function chunkArray(input1: number[], input2: number): number[][] {
-//   const chunkedArray: number[][] = [];
-//   for (let i = 0; i < input1.length; i += input2) {
-//     const chunk: number[] = input1.slice(i, i + input2);
-//     chunkedArray.push(chunk);
-//   }
-//   return chunkedArray;
-// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3))}
-// interface T {
-//   [key: string]: any;
-// }
-// function countOccurrences(obj: T, key: string): number {
-//   let count = 0;
-//   function recurse(obj: T): void {
-//     if (typeof obj === "object" && obj !== null) {
-//       for (const k in obj) {
-//         if (k === key) {
-//           count++;
-//         }
-//         recurse(obj[k]);
-//       }
-//     }
-//   }
-//   recurse(obj);
-//   return count;
-// }
-// console.log(
-//   countOccurrences(
-//     { model: "Bugatti", steer: { model: "HANKOOK", size: 30 } },
-//     "model"
-//   )
-// );
-
-// function findIntersection(arr1: number[], arr2: number[]): number[] {
-//   const newArray = [];
-
-//   for (let i = 0; i < arr1.length; i++) {
-//     if (arr2.includes(arr1[i])) {
-//       newArray.push(arr1[i]);
-//     }
-//   }
-//   return newArray;
-// }
-
-// console.log(findIntersection([1, 2, 3], [3, 2, 0]));
-// console.log(findIntersection([1, 2, 3], [3, 4, 1]));
-// interface T {
-//   [key: string]: any;
-// }
-
-// function sumEvens(arr: number[]): number {
-//   const evenNumbers = arr.filter((ele) => {
-//     return ele % 2 === 0;
-//   });
-//   return evenNumbers.reduce((a, b) => a + b);
-// }
-// console.log(sumEvens([1, 2, 3]));
-// console.log(sumEvens([1, 2, 4, 6, 8]));
-
-// function randomBetween(min: number, max: number): number {
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
-// console.log(randomBetween(30, 50));
-
-function celsiusToFahrenheit(input: number): number {
-  return input * (9 / 5) + 32;
-}
-console.log(celsiusToFahrenheit(0));
