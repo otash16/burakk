@@ -1,3 +1,4 @@
+
 import { Types } from "mongoose";
 
 import {
@@ -54,4 +55,6 @@ export interface Product {
   productDesc?: string;
   productImages: string[];
   productViews: number;
+  createdAt: Date;
+  updatedAt: Date;
 }
