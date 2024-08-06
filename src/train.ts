@@ -16,9 +16,12 @@ function changeNumberInArray(
       newArray[i] = array[i];
     }
   }
+
   return newArray;
 }
+
 console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
+console.log(changeNumberInArray(3, [1, 3, 7, 2], 50));
 
 // ZC-TASK:
 

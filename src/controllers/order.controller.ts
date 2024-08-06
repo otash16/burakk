@@ -56,6 +56,7 @@ orderController.updateOrder = async (req: ExtendedRequest, res: Response) => {
     const input: OrderUpdateInput = req.body;
     // console.log("input:", input);
     const result = await orderService.updateOrder(req.member, input);
+
     res.status(HttpCode.OK).json(result);
   } catch (err) {
     console.log("Error, updateOrder:", err);
