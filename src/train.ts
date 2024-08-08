@@ -3,25 +3,25 @@
 // Shunday function yozing, uni number, array va number parametrlari bolsin va berilgan 1-parametr numberga teng indexni array ichidan topib 3-parametrdagi raqam bilan almashtirib yangilangan arrayni qaytarsin
 // MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2]
 
-function changeNumberInArray(
-  index: number,
-  array: number[],
-  newValue: number
-): number[] {
-  let newArray: number[] = new Array(array.length);
-  for (let i = 0; i < array.length; i++) {
-    if (i === index) {
-      newArray[i] = newValue;
-    } else {
-      newArray[i] = array[i];
-    }
-  }
+// function changeNumberInArray(
+//   index: number,
+//   array: number[],
+//   newValue: number
+// ): number[] {
+//   let newArray: number[] = new Array(array.length);
+//   for (let i = 0; i < array.length; i++) {
+//     if (i === index) {
+//       newArray[i] = newValue;
+//     } else {
+//       newArray[i] = array[i];
+//     }
+//   }
 
-  return newArray;
-}
+//   return newArray;
+// }
 
-console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
-console.log(changeNumberInArray(3, [1, 3, 7, 2], 50));
+// console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
+// console.log(changeNumberInArray(3, [1, 3, 7, 2], 50));
 
 // ZC-TASK:
 
@@ -496,3 +496,16 @@ GraphQL API
 // console.log(getHighestIndex([5, 9, 12, 0, 1]));
 // console.log(getHighestIndex([5, 9, 12, 0, 1, 48, 50, 23, 1000]));
 // console.log(getHighestIndex("hi"));
+
+
+function removeDuplicate(input: string): string {
+  let result: string = "";
+
+  for (const char of input) {
+    if (result.indexOf(char) === -1) {
+      result += char;
+    }
+  }
+  return result;
+}
+console.log(removeDuplicate("stringg"));
