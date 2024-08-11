@@ -498,14 +498,27 @@ GraphQL API
 // console.log(getHighestIndex("hi"));
 
 
-function removeDuplicate(input: string): string {
-  let result: string = "";
+// function removeDuplicate(input: string): string {
+//   let result: string = "";
 
-  for (const char of input) {
-    if (result.indexOf(char) === -1) {
-      result += char;
-    }
+//   for (const char of input) {
+//     if (result.indexOf(char) === -1) {
+//       result += char;
+//     }
+//   }
+//   return result;
+// }
+// console.log(removeDuplicate("stringg"));
+
+function capitalizeWords(str: string) {
+  let words = str.split(' ');
+  let capitalizedWords = words.map(word => {
+      if (word.length <= 2) {
+          return word;
+          } else {
+              return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+              }
+              });
+              return capitalizedWords.join(' ');
   }
-  return result;
-}
-console.log(removeDuplicate("stringg"));
+  console.log(capitalizeWords('name should be a string') );
