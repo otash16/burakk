@@ -8,17 +8,30 @@
 
 //TASK ZH#
 
-function findDisappearedNumbers(input: number[]): number[] {
-  const largestNum = Math.max(...input);
+// function findDisappearedNumbers(input: number[]): number[] {
+//   const largestNum = Math.max(...input);
 
-  let newArr: number[] = [];
-  for (let i = 1; i <= largestNum; i++) {
-    newArr.push(i);
-  }
+//   let newArr: number[] = [];
+//   for (let i = 1; i <= largestNum; i++) {
+//     newArr.push(i);
+//   }
 
-  let disappearedNumArr = newArr.filter((number) => !input.includes(number));
+//   let disappearedNumArr = newArr.filter((number) => !input.includes(number));
 
-  return disappearedNumArr;
+//   return disappearedNumArr;
+// }
+
+// console.log(findDisappearedNumbers([1, 3, 4, 7]));
+
+
+function delayHelloWorld(input: string): Promise<string> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(input);
+    }, 3000);
+  });
 }
 
-console.log(findDisappearedNumbers([1, 3, 4, 7]));
+delayHelloWorld("Hello World").then((result) => {
+  console.log(result);
+});
