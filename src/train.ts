@@ -24,14 +24,26 @@
 // console.log(findDisappearedNumbers([1, 3, 4, 7]));
 
 
-function delayHelloWorld(input: string): Promise<string> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(input);
-    }, 3000);
-  });
-}
+// function delayHelloWorld(input: string): Promise<string> {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve(input);
+//     }, 3000);
+//   });
+// }
 
-delayHelloWorld("Hello World").then((result) => {
-  console.log(result);
-});
+// delayHelloWorld("Hello World").then((result) => {
+//   console.log(result);
+// });
+
+function nestedArray(arr: (number | (number | any[])[])[]): number {
+  let a = 0;
+  for (const element of arr) {
+    if (Array.isArray(element)) {
+      a += nestedArray(element);
+    } else {
+      a += element;
+    }
+  }
+  return a;
+}
