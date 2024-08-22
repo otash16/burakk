@@ -36,14 +36,28 @@
 //   console.log(result);
 // });
 
-function nestedArray(arr: (number | (number | any[])[])[]): number {
-  let a = 0;
-  for (const element of arr) {
-    if (Array.isArray(element)) {
-      a += nestedArray(element);
-    } else {
-      a += element;
+// function nestedArray(arr: (number | (number | any[])[])[]): number {
+//   let a = 0;
+//   for (const element of arr) {
+//     if (Array.isArray(element)) {
+//       a += nestedArray(element);
+//     } else {
+//       a += element;
+//     }
+//   }
+//   return a;
+// }
+
+
+function printNumbers() {
+  let number = 1;
+  const intervalNumber = setInterval(() => {
+    console.log(number);
+    if (number === 5) {
+      clearInterval(intervalNumber);
     }
-  }
-  return a;
+    number++;
+  }, 1000);
 }
+
+printNumbers();
