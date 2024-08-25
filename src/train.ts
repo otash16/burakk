@@ -49,15 +49,22 @@
 // }
 
 
-function printNumbers() {
-  let number = 1;
-  const intervalNumber = setInterval(() => {
-    console.log(number);
-    if (number === 5) {
-      clearInterval(intervalNumber);
-    }
-    number++;
-  }, 1000);
+// function printNumbers() {
+//   let number = 1;
+//   const intervalNumber = setInterval(() => {
+//     console.log(number);
+//     if (number === 5) {
+//       clearInterval(intervalNumber);
+//     }
+//     number++;
+//   }, 1000);
+// }
+
+// printNumbers();
+
+function stringToKebab(input: string): string {
+  const lowerString = input.toLowerCase();
+  return lowerString.split(" ").join("-");
 }
 
-printNumbers();
+console.log(stringToKebab("I love Kebab"));
