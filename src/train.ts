@@ -62,9 +62,16 @@
 
 // printNumbers();
 
-function stringToKebab(input: string): string {
-  const lowerString = input.toLowerCase();
-  return lowerString.split(" ").join("-");
+// function stringToKebab(input: string): string {
+//   const lowerString = input.toLowerCase();
+//   return lowerString.split(" ").join("-");
+// }
+
+// console.log(stringToKebab("I love Kebab"));
+
+function reverseInteger(n: number): number {
+  const reversedString = n.toString().split("").reverse().join("");
+  return parseInt(reversedString, 10) * Math.sign(n);
 }
 
-console.log(stringToKebab("I love Kebab"));
+console.log(reverseInteger(123456789));
