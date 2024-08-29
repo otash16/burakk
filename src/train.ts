@@ -69,9 +69,21 @@
 
 // console.log(stringToKebab("I love Kebab"));
 
-function reverseInteger(n: number): number {
-  const reversedString = n.toString().split("").reverse().join("");
-  return parseInt(reversedString, 10) * Math.sign(n);
-}
+// function reverseInteger(n: number): number {
+//   const reversedString = n.toString().split("").reverse().join("");
+//   return parseInt(reversedString, 10) * Math.sign(n);
+// }
 
-console.log(reverseInteger(123456789));
+// console.log(reverseInteger(123456789));
+
+
+function rotateArr<T>(array: T[], countingRotation: number): T[] {
+  const length = array.length;
+  countingRotation = countingRotation % length;
+
+  if (countingRotation === 0) {
+      return array;
+  }
+
+  return array.slice(countingRotation).concat(array.slice(0, countingRotation));
+}
