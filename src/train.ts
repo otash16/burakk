@@ -77,13 +77,30 @@
 // console.log(reverseInteger(123456789));
 
 
-function rotateArr<T>(array: T[], countingRotation: number): T[] {
-  const length = array.length;
-  countingRotation = countingRotation % length;
+// function rotateArr<T>(array: T[], countingRotation: number): T[] {
+//   const length = array.length;
+//   countingRotation = countingRotation % length;
 
-  if (countingRotation === 0) {
-      return array;
+//   if (countingRotation === 0) {
+//       return array;
+//   }
+
+//   return array.slice(countingRotation).concat(array.slice(0, countingRotation));
+// }
+
+function areParenthesesBalanced(str: string): boolean{
+  let balance = 0;
+
+  for (const char of str) {
+    if (char === "(") {
+      balance++;
+    } else if (char === ")") {
+      balance--;
+    }
+    if (balance < 0) {
+      return false;
+    }
   }
 
-  return array.slice(countingRotation).concat(array.slice(0, countingRotation));
+  return balance === 0
 }
