@@ -88,19 +88,37 @@
 //   return array.slice(countingRotation).concat(array.slice(0, countingRotation));
 // }
 
-function areParenthesesBalanced(str: string): boolean{
-  let balance = 0;
+// function areParenthesesBalanced(str: string): boolean{
+//   let balance = 0;
 
-  for (const char of str) {
-    if (char === "(") {
-      balance++;
-    } else if (char === ")") {
-      balance--;
-    }
-    if (balance < 0) {
-      return false;
+//   for (const char of str) {
+//     if (char === "(") {
+//       balance++;
+//     } else if (char === ")") {
+//       balance--;
+//     }
+//     if (balance < 0) {
+//       return false;
+//     }
+//   }
+
+//   return balance === 0
+// }
+
+function findDuplicates(arr: number[]): number[] {
+  const duplicates: number[] = [];
+  const seen: { [key: number]: number } = {};
+  for (const num of arr) {
+    seen[num] = (seen[num] || 0) + 1;
+  }
+
+  for (const num in seen) {
+    if (seen[num] > 1) {
+      duplicates.push(Number(num));
     }
   }
 
-  return balance === 0
+  return duplicates;
 }
+
+console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]));
