@@ -105,20 +105,40 @@
 //   return balance === 0
 // }
 
-function findDuplicates(arr: number[]): number[] {
-  const duplicates: number[] = [];
-  const seen: { [key: number]: number } = {};
-  for (const num of arr) {
-    seen[num] = (seen[num] || 0) + 1;
-  }
+// function findDuplicates(arr: number[]): number[] {
+//   const duplicates: number[] = [];
+//   const seen: { [key: number]: number } = {};
+//   for (const num of arr) {
+//     seen[num] = (seen[num] || 0) + 1;
+//   }
 
-  for (const num in seen) {
-    if (seen[num] > 1) {
-      duplicates.push(Number(num));
+//   for (const num in seen) {
+//     if (seen[num] > 1) {
+//       duplicates.push(Number(num));
+//     }
+//   }
+
+//   return duplicates;
+// }
+
+// console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]));
+
+function countNumberAndLetters(input: string): {
+  number: number;
+  letter: number;
+} {
+  let numberCount = 0;
+  let letterCount = 0;
+
+  for (const char of input) {
+    if (char >= "0" && char <= "9") {
+      numberCount++;
+    } else if ((char >= "a" && char <= "z") || (char >= "A" && char <= "Z")) {
+      letterCount++;
     }
   }
 
-  return duplicates;
+  return { number: numberCount, letter: letterCount };
 }
 
-console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]));
+console.log(countNumberAndLetters("string152%¥"));
