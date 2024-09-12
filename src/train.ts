@@ -144,17 +144,36 @@
 // console.log(countNumberAndLetters("string152%¥"));
 
 
-function singleNumber(arr: number[]): number | undefined {
-  const countMap: { [key: number]: number } = {};
+// function singleNumber(arr: number[]): number | undefined {
+//   const countMap: { [key: number]: number } = {};
   
-  for (const num of arr) {
-    countMap[num] = (countMap[num] || 0) + 1;
+//   for (const num of arr) {
+//     countMap[num] = (countMap[num] || 0) + 1;
+//   }
+//   for (const num of arr) {
+//     if (countMap[num] === 1) {
+//       return num;
+//     }
+//   }
+//   return undefined;
+// }
+// console.log(singleNumber([4, 2, 1, 2, 1]));
+
+
+function firstUniqueCharIndex(s: string): number {
+  const charCount: { [key: string]: number } = {};
+
+  for (let char of s) {
+    charCount[char] = (charCount[char] || 0) + 1;
   }
-  for (const num of arr) {
-    if (countMap[num] === 1) {
-      return num;
+
+  for (let i = 0; i < s.length; i++) {
+    if (charCount[s[i]] === 1) {
+      return i;
     }
   }
-  return undefined;
+
+  return -1;
 }
-console.log(singleNumber([4, 2, 1, 2, 1]));
+
+console.log(firstUniqueCharIndex("stamp"));
