@@ -5,26 +5,26 @@
 // Shunday function yozing, u parametridagi array ichida takrorlanmagan raqamlar yig'indisini qaytarsin.
 // MASALAN: sumOfUnique([1,2,3,2]) return 4
 
-function sumOfUnique(nums: number[]): number {
-  let sum = 0;
+// function sumOfUnique(nums: number[]): number {
+//   let sum = 0;
 
-  for (let i = 0; i < nums.length; i++) {
-    let count = 0;
+//   for (let i = 0; i < nums.length; i++) {
+//     let count = 0;
 
-    for (let j = 0; j < nums.length; j++) {
-      if (nums[i] === nums[j]) {
-        count++;
-      }
-    }
+//     for (let j = 0; j < nums.length; j++) {
+//       if (nums[i] === nums[j]) {
+//         count++;
+//       }
+//     }
 
-    if (count === 1) {
-      sum += nums[i];
-    }
-  }
+//     if (count === 1) {
+//       sum += nums[i];
+//     }
+//   }
 
-  return sum;
-}
-console.log(sumOfUnique([1, 2, 3, 2]));
+//   return sum;
+// }
+// console.log(sumOfUnique([1, 2, 3, 2]));
 
 // ZR-TASK:
 
@@ -811,3 +811,11 @@ GraphQL API
 // console.log(getHighestIndex([5, 9, 12, 0, 1]));
 // console.log(getHighestIndex([5, 9, 12, 0, 1, 48, 50, 23, 1000]));
 // console.log(getHighestIndex("hi"));
+
+function areArraysEqual(a: number[], b: number[]): boolean {
+  const bir = a.slice().sort((a, b) => a - b);
+  const ikki = b.slice().sort((a, b) => a - b);
+  return JSON.stringify(bir) === JSON.stringify(ikki);
+}
+
+console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1]));
